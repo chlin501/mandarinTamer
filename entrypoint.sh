@@ -26,4 +26,10 @@ while true; do
   esac
 done
 
+if [ -z "$target_lang" ] || [ -z "$sentence" ]; then
+  echo "Error: Please specify either -t/--zh-tw or -c/--zh-cn with a sentence" >&2
+  exit 1
+fi
+
+
 python3 -c "from mandarin_tamer import convert_mandarin_script; print(convert_mandarin_script(\"${sentence}\", target_script=\"${target_lang}\"))"
