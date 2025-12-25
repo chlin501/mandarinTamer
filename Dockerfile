@@ -19,6 +19,7 @@ COPY --from=build /usr/local/lib/python3.11/site-packages /usr/local/lib/python3
 COPY --from=build /usr/local/bin /usr/local/bin
 
 COPY entrypoint.sh /
+RUN chmod +x /entrypoint.sh
 
 ENV PYTHONUNBUFFERED=1
 
